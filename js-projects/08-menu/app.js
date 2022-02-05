@@ -75,30 +75,41 @@ const menu = [
 
 const sectionCenter = document.querySelector('.section-center');
 
-const filterBtns = document.querySelectorAll('.filter-btn');
+const container = document.querySelector('.btn-container');
 
 
 window.addEventListener('DOMContentLoaded', function(){
   displayMenuItems(menu);
-});
-
-filterBtns.forEach(function(btn) {
-  btn.addEventListener('click', function(e){
-    const category = e.currentTarget.dataset.id;
-    console.log('category', category);
-    const menuCategory = menu.filter(function(menuItem) {
-      if(menuItem.category === category)  {
-        return menuItem;
+  const categories = menu.reduce(function(values, item) {
+    if(!values.includes(item.category)) {
+      values.push(item.category);
+    }
+    return values;
+  }, ['all']
+  );
+  const categoryBtns = categories.map(function(category) {
+    return `<button class="filter-btn" type='button' data-id=${category}>${category}</button>`
+  }).join('');
+  container.innerHTML = categoryBtns;
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function(e){
+      const category = e.currentTarget.dataset.id;
+      console.log('category', category);
+      const menuCategory = menu.filter(function(menuItem) {
+        if(menuItem.category === category)  {
+          return menuItem;
+        }
+      });
+      console.log('menuCategory', menuCategory);
+      if(category === 'all') {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory);
       }
     });
-    console.log('menuCategory', menuCategory);
-    if(category === 'all') {
-      displayMenuItems(menu);
-    } else {
-      displayMenuItems(menuCategory);
-    }
-  });
-})
+  })
+});
 
 function displayMenuItems(menuItems) {
   let displayMenu = menuItems.map(function(item){

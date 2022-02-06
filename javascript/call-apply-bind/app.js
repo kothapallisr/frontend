@@ -20,7 +20,7 @@ message.call(peter, 'Bay area', 'SF');
 message.apply(john, ['Berlin', 'Germany']);
 message.apply(peter, ['Bay area', 'SF']);
 
-// bind() takes list of arguments and returns a function
+// bind() takes list of arguments and returns the function
 const msg = message.bind(john, 'Berlin', 'Germany');
 msg();
 const msg2 = message.bind(peter, 'Bay area', 'SF');

@@ -7,14 +7,41 @@ embedded via Google Fonts.
 Don't know how to make an image round? Google it!
 Also, consider how you should select the image 
 (class vs id vs element selector).
+pink: #EFB0C9
+blue: #a2d2ff
+white: #ffffff
 */
 
 body {
     text-align: center;
+    color: white;
     font-family: 'Happy Monkey', cursive;
-}
+    background: #a2d2ff;
 
+}
+#header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1, h2, h3, h4, p {
+    text-shadow: 0px 0px 1px black;
+}
 #bff-img {
     width: 150px;
     border-radius: 50%;
+    border: 5px solid #EFB0C9;
+}
+#bday-age{
+    background: #EFB0C9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+}
+#bday-date {
+    margin: 0px;
+    background: #EFB0C9;
+    padding: 5px 10px;
+    border-radius: 5px;
+
 }

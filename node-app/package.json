@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "mongoose": "^6.4.2",
-    "underscore": "^1.13.4"
+    "underscore": "^1.4.0"
   }
 }

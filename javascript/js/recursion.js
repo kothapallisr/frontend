@@ -9,7 +9,6 @@ let sum = function(a) {
 }
 console.log(sum(1)(2)(3)(4)())
 
-
 // using arrow function
 
 let sumArrow = a => b => b ? sumArrow(a + b) : a
